@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#b5651d" />
+<title>Feliz Dia dos Pais 🧡</title>
+
+<!-- Fontes (funcionam quando houver internet; se não houver, usa fontes do próprio celular) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================================
+     PALETA E BASE
+     ========================================================= */
+  :root{
+    --creme:#fff8ef;
+    --areia:#ffe9d6;
+    --dourado:#f2c98a;
+    --terracota:#b5651d;
+    --terracota-forte:#9a5216;
+    --marrom:#4a3728;
+    --marrom-suave:#6f5642;
+    --sombra:rgba(90,55,20,.18);
+    --serif:'Fraunces', Georgia, 'Times New Roman', serif;
+    --mao:'Caveat', 'Segoe Script', cursive;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--serif);
+    color:var(--marrom);
+    background:linear-gradient(180deg,#fff8ef 0%,#ffeeda 35%,#ffe1c4 70%,#f8d6b2 100%);
+    background-attachment:fixed;
+    overflow-x:hidden;
+    -webkit-tap-highlight-color:transparent;
+    line-height:1.5;
+  }
+
+  /* textura de papel bem sutil */
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    opacity:.5;
+    background-image:radial-gradient(rgba(181,101,29,.06) 1px, transparent 1px);
+    background-size:22px 22px;
+  }
+
+  section{
+    position:relative; z-index:1;
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    padding:64px 24px;
+    text-align:center;
+  }
+
+  /* =========================================================
+     ABERTURA (HERO)
+     ========================================================= */
+  #abertura{gap:14px;}
+
+  .selo{
+    font-family:var(--mao);
+    font-size:clamp(20px,6vw,28px);
+    color:var(--terracota);
+    opacity:0;
+    transform:translateY(12px);
+    animation:sobe .9s ease .2s forwards;
+  }
+
+  .coracao{
+    font-size:clamp(52px,16vw,80px);
+    display:inline-block;
+    filter:drop-shadow(0 6px 10px var(--sombra));
+    animation:pulsa 1.8s ease-in-out infinite;
+  }
+
+  #abertura h1{
+    font-weight:600;
+    font-size:clamp(40px,13vw,68px);
+    line-height:1.02;
+    letter-spacing:-.5px;
+    color:var(--marrom);
+    opacity:0; transform:translateY(16px);
+    animation:sobe 1s ease .5s forwards;
+  }
+  #abertura h1 .nome{
+    display:block;
+    color:var(--terracota-forte);
+    font-size:1.18em;
+    margin-top:.12em;
+  }
+
+  #abertura .data{
+    font-family:var(--mao);
+    font-size:clamp(18px,5vw,24px);
+    color:var(--marrom-suave);
+    opacity:0; transform:translateY(16px);
+    animation:sobe 1s ease .9s forwards;
+  }
+
+  .seta{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+    font-size:26px; color:var(--terracota);
+    opacity:0; animation:fade 1s ease 1.6s forwards, flutua 1.8s ease-in-out 1.6s infinite;
+  }
+
+  /* =========================================================
+     TÍTULOS DE SEÇÃO
+     ========================================================= */
+  .titulo-secao{
+    font-family:var(--mao);
+    font-size:clamp(30px,9vw,44px);
+    color:var(--terracota-forte);
+    margin-bottom:34px;
+  }
+  .titulo-secao small{
+    display:block;
+    font-family:var(--serif);
+    font-size:.42em;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--marrom-suave);
+    margin-bottom:6px;
+    font-weight:500;
+  }
+
+  /* =========================================================
+     GALERIA — POLAROIDS
+     ========================================================= */
+  #memorias{padding-top:80px;}
+  .galeria{
+    width:100%; max-width:520px;
+    display:flex; flex-direction:column; gap:46px;
+  }
+
+  .polaroid{
+    background:#fffdf9;
+    padding:14px 14px 0;
+    border-radius:4px;
+    box-shadow:0 12px 26px var(--sombra), 0 2px 4px rgba(0,0,0,.06);
+    align-self:center;
+    width:min(84vw,340px);
+  }
+  .polaroid:nth-child(odd){transform:rotate(-2.2deg);}
+  .polaroid:nth-child(even){transform:rotate(2deg);}
+
+  .polaroid .moldura{
+    position:relative;
+    width:100%; aspect-ratio:4/5;
+    background:linear-gradient(135deg,#f7e4cf,#f0d2b2);
+    border-radius:2px; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .polaroid img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .polaroid .espaco{height:14px;}
+
+  .polaroid .legenda{
+    font-family:var(--mao);
+    font-size:clamp(20px,5.5vw,26px);
+    color:var(--marrom);
+    padding:12px 6px 16px;
+    text-align:center;
+  }
+
+  /* =========================================================
+     BILHETES / MENSAGENS
+     ========================================================= */
+  #mensagens{gap:30px;}
+  .bilhetes{
+    width:100%; max-width:480px;
+    display:flex; flex-direction:column; gap:30px;
+  }
+  .bilhete{
+    position:relative;
+    background:#fffef8;
+    border-radius:6px;
+    padding:30px 26px 28px;
+    box-shadow:0 10px 22px var(--sombra);
+    font-family:var(--mao);
+    font-size:clamp(22px,6vw,28px);
+    color:var(--marrom);
+  }
+  .bilhete:nth-child(odd){transform:rotate(-1.3deg);}
+  .bilhete:nth-child(even){transform:rotate(1.3deg);}
+  /* "fita adesiva" no topo */
+  .bilhete::before{
+    content:"";
+    position:absolute; top:-12px; left:50%; transform:translateX(-50%) rotate(-3deg);
+    width:96px; height:26px;
+    background:rgba(242,201,138,.55);
+    border:1px solid rgba(181,101,29,.18);
+    border-radius:2px;
+  }
+
+  /* =========================================================
+     O QUE EU LEVO DE VOCÊ
+     ========================================================= */
+  #motivos .lista{
+    width:100%; max-width:460px;
+    display:flex; flex-direction:column; gap:16px; text-align:left;
+  }
+  .motivo{
+    display:flex; align-items:flex-start; gap:14px;
+    background:rgba(255,255,255,.55);
+    border:1px solid rgba(181,101,29,.16);
+    border-radius:14px;
+    padding:16px 18px;
+    font-size:clamp(18px,4.6vw,21px);
+    color:var(--marrom);
+    backdrop-filter:blur(2px);
+  }
+  .motivo .mark{font-size:22px; line-height:1; flex-shrink:0;}
+
+  /* =========================================================
+     CARTA FINAL
+     ========================================================= */
+  #carta{padding-top:80px;}
+  .carta{
+    width:100%; max-width:500px;
+    background:#fffdf7;
+    border-radius:8px;
+    box-shadow:0 16px 34px var(--sombra);
+    padding:38px 30px 34px;
+    text-align:left;
+  }
+  .carta .ola{
+    font-family:var(--mao);
+    font-size:clamp(26px,7vw,32px);
+    color:var(--terracota-forte);
+    margin-bottom:16px;
+  }
+  .carta p{
+    font-size:clamp(17px,4.6vw,20px);
+    color:var(--marrom);
+    margin-bottom:16px;
+  }
+  .carta .assinatura{
+    font-family:var(--mao);
+    font-size:clamp(24px,6.5vw,30px);
+    color:var(--marrom);
+    text-align:right;
+    margin-top:22px;
+  }
+
+  footer{
+    position:relative; z-index:1;
+    text-align:center; padding:34px 20px 46px;
+    color:var(--marrom-suave);
+    font-family:var(--mao); font-size:20px;
+  }
+  footer .mini{font-family:var(--serif); font-size:12px; opacity:.7; margin-top:6px;}
+
+  /* =========================================================
+     BOTÃO DE MÚSICA
+     ========================================================= */
+  #btn-musica{
+    position:fixed; z-index:20; right:16px; bottom:16px;
+    width:52px; height:52px; border:none; border-radius:50%;
+    background:var(--terracota); color:#fff;
+    font-size:22px; cursor:pointer;
+    box-shadow:0 6px 16px var(--sombra);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .2s ease;
+  }
+  #btn-musica:active{transform:scale(.9);}
+  #btn-musica.chamando{animation:pulsa-btn 1.6s ease-in-out infinite;}
+  @keyframes pulsa-btn{
+    0%,100%{box-shadow:0 6px 16px var(--sombra),0 0 0 0 rgba(181,101,29,.45);}
+    50%{box-shadow:0 6px 16px var(--sombra),0 0 0 12px rgba(181,101,29,0); transform:scale(1.06);}
+  }
+  #dica-musica{
+    position:fixed; z-index:19; right:78px; bottom:24px;
+    background:var(--marrom); color:#fff;
+    font-family:var(--serif); font-size:13px;
+    padding:8px 12px; border-radius:20px;
+    box-shadow:0 6px 16px var(--sombra);
+    white-space:nowrap; opacity:0; pointer-events:none;
+    animation:aparece-dica .5s ease 1.2s forwards;
+  }
+  #dica-musica::after{
+    content:""; position:absolute; right:-6px; top:50%; transform:translateY(-50%);
+    border:6px solid transparent; border-left-color:var(--marrom);
+  }
+  #dica-musica.some{animation:some-dica .4s ease forwards;}
+  @keyframes aparece-dica{to{opacity:1;}}
+  @keyframes some-dica{to{opacity:0; transform:translateX(8px);}}
+
+  /* =========================================================
+     ANIMAÇÕES DE ENTRADA (aparecem ao rolar)
+     ========================================================= */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visivel{opacity:1; transform:none;}
+
+  @keyframes sobe{to{opacity:1; transform:none;}}
+  @keyframes fade{to{opacity:1;}}
+  @keyframes pulsa{0%,100%{transform:scale(1);}50%{transform:scale(1.12);}}
+  @keyframes flutua{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+
+  /* coração que sobe ao tocar na tela */
+  .coracao-toque{
+    position:fixed; z-index:15; pointer-events:none;
+    font-size:26px; animation:sobe-some 1.1s ease-out forwards;
+  }
+  @keyframes sobe-some{
+    0%{opacity:1; transform:translateY(0) scale(.6);}
+    100%{opacity:0; transform:translateY(-90px) scale(1.2);}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;}
+    .reveal{opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- abertura -->
+  <section id="abertura">
+    <span class="selo">programado a mão pro meu pai</span>
+    <span class="coracao">🧡</span>
+    <h1>Feliz Dia<br>dos Pais<span class="nome">Márcio</span></h1>
+    <span class="data">9 de agosto de 2026</span>
+    <span class="seta">↓ Desça ↓</span>
+  </section>
+
+  <!-- galeria -->
+  <section id="memorias">
+    <h2 class="titulo-secao reveal"><small>momentos que eu guardo</small>Nós dois</h2>
+    <div class="galeria">
+      <div class="polaroid reveal">
+        <div class="moldura"><img src="fotos/foto1.jpg" alt="eu e meu pai" loading="lazy"></div>
+        <div class="legenda">nós dois</div>
+      </div>
+      <div class="polaroid reveal">
+        <div class="moldura"><img src="fotos/foto2.jpg" alt="eu e meu pai" loading="lazy"></div>
+        <div class="espaco"></div>
+      </div>
+      <div class="polaroid reveal">
+        <div class="moldura"><img src="fotos/foto3.jpg" alt="eu e meu pai" loading="lazy"></div>
+        <div class="legenda">os nossos momentos</div>
+      </div>
+      <div class="polaroid reveal">
+        <div class="moldura"><img src="fotos/foto4.jpg" alt="eu e meu pai" loading="lazy"></div>
+        <div class="espaco"></div>
+      </div>
+      <div class="polaroid reveal">
+        <div class="moldura"><img src="fotos/foto5.jpg" alt="eu e meu pai" loading="lazy"></div>
+        <div class="legenda">pra guardar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- mensagens -->
+  <section id="mensagens">
+    <h2 class="titulo-secao reveal"><small>do fundo do coração</small>Umas palavrinhas</h2>
+    <div class="bilhetes">
+      <div class="bilhete reveal">Você é meu pai, e eu tenho orgulho disso.</div>
+      <div class="bilhete reveal">Cada momento nosso eu guardo com carinho.</div>
+      <div class="bilhete reveal">É muito bom ter você por perto.</div>
+    </div>
+  </section>
+
+  <!-- o que eu levo de você -->
+  <section id="motivos">
+    <h2 class="titulo-secao reveal"><small>um pouco de você em mim</small>O que eu levo de você</h2>
+    <div class="lista">
+      <div class="motivo reveal"><span class="mark">🧡</span><span>As coisas que você me ensinou, do seu jeito</span></div>
+      <div class="motivo reveal"><span class="mark">🧡</span><span>As risadas que a gente dá junto</span></div>
+      <div class="motivo reveal"><span class="mark">🧡</span><span>Um pedacinho seu que eu reconheço em mim</span></div>
+      <div class="motivo reveal"><span class="mark">🧡</span><span>A nossa história, que só melhora</span></div>
+    </div>
+  </section>
+
+  <!-- carta -->
+  <section id="carta">
+    <div class="carta reveal">
+      <div class="ola">Márcio,</div>
+      <p>Hoje é o seu dia, e eu queria que você soubesse o quanto é bom te ter como pai.</p>
+      <p>Fico feliz por cada momento nosso: pelas risadas, pelas conversas, por tudo que a gente vive junto.</p>
+      <p>Obrigado por tudo, pai. Feliz Dia dos Pais e que a gente fique cada vez mais perto.</p>
+      <div class="assinatura">com carinho riqui 🧡</div>
+    </div>
+  </section>
+
+  <footer>
+    feito com carinho pra você
+    <div class="mini">toque na tela 🧡</div>
+  </footer>
+
+  <button id="btn-musica" title="Música">🎵</button>
+
+<script>
+(function(){
+  // aparecer suavemente ao rolar a página
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visivel'); io.unobserve(e.target); }
+    });
+  }, { threshold:.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // Coraçõezinhos ao tocar/clicar
+  const emojis = ['🧡','💛','❤️','✨'];
+  document.addEventListener('click', function(ev){
+    if(ev.target.closest('#btn-musica')) return;
+    const h = document.createElement('span');
+    h.className = 'coracao-toque';
+    h.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    h.style.left = (ev.clientX - 12) + 'px';
+    h.style.top  = (ev.clientY - 12) + 'px';
+    document.body.appendChild(h);
+    setTimeout(function(){ h.remove(); }, 1100);
+  });
+
+  // trilha sonora
+  const btnMusica = document.getElementById('btn-musica');
+  const musica = new Audio('fotos/musica.mp3');
+  musica.loop = true;
+  musica.volume = 0.6;
+  let musicaLigada = false;
+
+  // chama a atenção pro botão enquanto a música não começa
+  btnMusica.classList.add('chamando');
+  const dicaMusica = document.createElement('div');
+  dicaMusica.id = 'dica-musica';
+  dicaMusica.textContent = '🎵 toque para ouvir';
+  document.body.appendChild(dicaMusica);
+
+  function marcarTocando(){
+    musicaLigada = true;
+    btnMusica.textContent = '⏸️';
+    btnMusica.classList.remove('chamando');
+    dicaMusica.classList.add('some');
+  }
+  function tocarMusica(){
+    musica.play().then(marcarTocando).catch(function(){});
+  }
+  function pausarMusica(){
+    musica.pause();
+    musicaLigada = false;
+    btnMusica.textContent = '🎵';
+  }
+
+  btnMusica.addEventListener('click', function(e){
+    e.stopPropagation();
+    if (musicaLigada) pausarMusica(); else tocarMusica();
+  });
+
+  // tenta iniciar sozinha; se o navegador bloquear, começa no primeiro gesto (toque, clique ou tecla)
+  tocarMusica();
+  const gestos = ['pointerdown','touchstart','keydown','click'];
+  function iniciarNoPrimeiroGesto(){
+    if (musicaLigada) { removerGestos(); return; }
+    musica.play().then(function(){ marcarTocando(); removerGestos(); }).catch(function(){});
+  }
+  function removerGestos(){
+    gestos.forEach(function(ev){ window.removeEventListener(ev, iniciarNoPrimeiroGesto); });
+  }
+  gestos.forEach(function(ev){ window.addEventListener(ev, iniciarNoPrimeiroGesto, { passive:true }); });
+})();
+</script>
+</body>
+</html>
