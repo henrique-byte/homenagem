@@ -54,6 +54,7 @@
   section{
     position:relative; z-index:1;
     min-height:100vh;
+    min-height:100dvh;
     display:flex; flex-direction:column; justify-content:center; align-items:center;
     padding:64px 24px;
     text-align:center;
@@ -62,7 +63,7 @@
   /* =========================================================
      ABERTURA (HERO)
      ========================================================= */
-  #abertura{gap:14px;}
+  #abertura{gap:10px; padding-top:40px; padding-bottom:84px;}
 
   .selo{
     font-family:var(--mao);
@@ -74,7 +75,7 @@
   }
 
   .coracao{
-    font-size:clamp(52px,16vw,80px);
+    font-size:clamp(42px,12vw,62px);
     display:inline-block;
     filter:drop-shadow(0 6px 10px var(--sombra));
     animation:pulsa 1.8s ease-in-out infinite;
@@ -82,7 +83,7 @@
 
   #abertura h1{
     font-weight:600;
-    font-size:clamp(40px,13vw,68px);
+    font-size:clamp(32px,9.5vw,54px);
     line-height:1.02;
     letter-spacing:-.5px;
     color:var(--marrom);
@@ -92,8 +93,8 @@
   #abertura h1 .nome{
     display:block;
     color:var(--terracota-forte);
-    font-size:1.18em;
-    margin-top:.12em;
+    font-size:1.12em;
+    margin-top:.06em;
   }
 
   #abertura .data{
